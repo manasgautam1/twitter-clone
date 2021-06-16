@@ -1,0 +1,12 @@
+body {
+  overflow-x: hidden;
+}
+.navbar {
+  min-height: 10vh;
+}
+.home {
+  height: 65vh;
+}
+.btn-home {
+  width: 160px;
+}
