@@ -146,7 +146,6 @@ app.post('/addPost/:userID', async (req, res) => {
 
 // app.post('/addLike/:userID', (req, res) => {});
 
-const PORT = 3000;
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server Started at ${PORT}`);
 });
