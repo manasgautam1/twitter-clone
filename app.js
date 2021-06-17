@@ -121,7 +121,11 @@ app.post('/login', (req, res) => {
       if (foundUser) {
         if (foundUser.password === req.body.password) {
           res.redirect('user/' + foundUser._id);
+        } else {
+          res.render('wrongPass');
         }
+      } else {
+        res.render('wrongUser');
       }
     }
   });
