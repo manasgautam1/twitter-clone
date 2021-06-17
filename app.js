@@ -144,7 +144,14 @@ app.post('/addPost/:userID', async (req, res) => {
   res.redirect('/myPosts/' + req.params.userID);
 });
 
-// app.post('/addLike/:userID', (req, res) => {});
+app.post('/addLike/:userID', async (req, res) => {
+  await User.updateOne(
+    { _id: req.params.userID, 'posts.title': req.body.title },
+    { $inc: { 'posts.$.likes': 1 } }
+  );
+
+  res.redirect('/user/' + req.body.mainID);
+});
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server Started Successfully`);
